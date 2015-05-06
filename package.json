@@ -1,0 +1,24 @@
+{
+    "name": "logic-solver",
+    "version": "2.0.0",
+    "description": "General satisfiability solver for logic problems",
+    "main": "logic-solver.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/meteor/logic-solver.git"
+    },
+    "keywords": [
+        "sat",
+        "solver",
+        "logic",
+        "constraint"
+    ],
+    "dependencies": {
+        "underscore": "^1.7.0"
+    },
+    "author": "David Greenspan <david@meteor.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/meteor/logic-solver/issues"
+    }
+}

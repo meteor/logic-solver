@@ -1,7 +1,6 @@
 var MiniSat = require("./minisat_wrapper.js");
 var _ = require("underscore");
-var Logic;
-Logic = {};
+var Logic = exports;
 
 ////////// TYPE TESTERS
 
@@ -1843,4 +1842,3 @@ Logic.Solver.prototype.maximizeWeightedSum = function (solution, costTerms,
                                                        costWeights, options) {
   return minMaxWS(this, solution, costTerms, costWeights, options, false);
 };
-module.exports = Logic;

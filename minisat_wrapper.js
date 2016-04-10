@@ -1,4 +1,5 @@
 var C_MINISAT = require("./minisat.js");
+var Logic = require("./logic-solver");
 var _ = require("underscore");
 var MiniSat;
 MiniSat = function () {

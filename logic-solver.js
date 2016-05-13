@@ -149,6 +149,7 @@ var assert = Logic._assert;
 Logic._assertIfEnabled = function (value, tester, description) {
   if (assert) assert(value, tester, description);
 };
+var assertIfEnabled = Logic._assertIfEnabled;
 
 // Disabling runtime assertions speeds up clause generation.  Assertions
 // are disabled when the local variable `assert` is null instead of
@@ -1438,13 +1439,17 @@ Logic.Solver.prototype.solve = function (_assumpVar) {
 
   while (self._numClausesAddedToMiniSat < self.clauses.length) {
     var i = self._numClausesAddedToMiniSat;
-    var stillSat = self._minisat.addClause(self.clauses[i].terms);
+    var terms = self.clauses[i].terms;
+    assertIfEnabled(terms, isArrayWhere(Logic.isNumTerm));
+    var stillSat = self._minisat.addClause(terms);
     self._numClausesAddedToMiniSat++;
     if (! stillSat) {
       self._unsat = true;
       return null;
     }
   }
+
+  assertIfEnabled(this._num2name.length - 1, Logic.isWholeNumber);
   self._minisat.ensureVar(this._num2name.length - 1);
 
   var stillSat = (_assumpVar ?
